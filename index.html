@@ -480,19 +480,19 @@
             <div class="collapse navbar-collapse text-primary" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item ">
-                        <a id="home" class="nav-link text-primary" href="dashboard.html">Dashboard</a>
+                        <a id="home" class="nav-link text-primary" >Dashboard</a>
                     </li>
                     <li class="nav-item ">
-                        <a id="customerForm" class="nav-link text-primary " href="manageCustomer.html">Customers</a>
+                        <a id="customerForm" class="nav-link text-primary " >Customers</a>
                     </li>
                     <li class="nav-item ">
-                        <a id="itemForm" class="nav-link text-primary" href="manageStore.html">Items</a>
+                        <a id="itemForm" class="nav-link text-primary" >Items</a>
                     </li>
                     <li class="nav-item ">
-                        <a id="placeOrderForm" class="nav-link text-primary" href="placeOrder.html">Purchase Order</a>
+                        <a id="placeOrderForm" class="nav-link text-primary" >Purchase Order</a>
                     </li>
                     <li class="nav-item ">
-                        <a id="orderDetailForm" class="nav-link text-primary" href="orderDetail.html">Orders</a>
+                        <a id="orderDetailForm" class="nav-link text-primary" >Orders</a>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -1107,7 +1107,81 @@
         </table>
     </section>
 </section>
+<script>
+    document.getElementById("dashboard").style.fontWeight="bold";
+    document.getElementById("manageCustomer").style.display="none";
+    document.getElementById("manageStore").style.display="none";
+    document.getElementById("orderDetail").style.display="none";
+    document.getElementById("placeOrder").style.display="none";
+    document.getElementById("home").style.cursor="pointer";
+    document.getElementById("customerForm").style.cursor="pointer";
+    document.getElementById("itemForm").style.cursor="pointer";
+    document.getElementById("placeOrderForm").style.cursor="pointer";
+    document.getElementById("orderDetailForm").style.cursor="pointer";
 
+
+    document.getElementById("home").addEventListener("click", function () {
+        document.getElementById("dashboard").style.fontWeight="block";
+        document.getElementById("manageCustomer").style.display="none";
+        document.getElementById("manageStore").style.display="none";
+        document.getElementById("orderDetail").style.display="none";
+        document.getElementById("placeOrder").style.display="none";
+        document.getElementById("home").style.fontWeight="bold";
+        document.getElementById("customerForm").style.fontWeight="normal";
+        document.getElementById("itemForm").style.fontWeight="normal";
+        document.getElementById("orderDetailForm").style.fontWeight="normal";
+        document.getElementById("placeOrderForm").style.fontWeight="normal";
+    });
+    document.getElementById("customerForm").addEventListener("click", function () {
+        document.getElementById("manageCustomer").style.display="block";
+        document.getElementById("dashboard").style.fontWeight="none";
+        document.getElementById("manageStore").style.display="none";
+        document.getElementById("orderDetail").style.display="none";
+        document.getElementById("placeOrder").style.display="none";
+        document.getElementById("home").style.fontWeight="normal";
+        document.getElementById("customerForm").style.fontWeight="bold";
+        document.getElementById("itemForm").style.fontWeight="normal";
+        document.getElementById("orderDetailForm").style.fontWeight="normal";
+        document.getElementById("placeOrderForm").style.fontWeight="normal";
+    });
+    document.getElementById("itemForm").addEventListener("click", function () {
+        document.getElementById("manageStore").style.display="block";
+        document.getElementById("dashboard").style.fontWeight="none";
+        document.getElementById("manageCustomer").style.display="none";
+        document.getElementById("orderDetail").style.display="none";
+        document.getElementById("placeOrder").style.display="none";
+        document.getElementById("home").style.fontWeight="normal";
+        document.getElementById("customerForm").style.fontWeight="normal";
+        document.getElementById("itemForm").style.fontWeight="bold";
+        document.getElementById("orderDetailForm").style.fontWeight="normal";
+        document.getElementById("placeOrderForm").style.fontWeight="normal";
+    });
+    document.getElementById("placeOrderForm").addEventListener("click", function () {
+        document.getElementById("placeOrder").style.display="block";
+        document.getElementById("manageStore").style.display="none";
+        document.getElementById("dashboard").style.fontWeight="none";
+        document.getElementById("manageCustomer").style.display="none";
+        document.getElementById("orderDetail").style.display="none";
+        document.getElementById("home").style.fontWeight="normal";
+        document.getElementById("customerForm").style.fontWeight="normal";
+        document.getElementById("itemForm").style.fontWeight="normal";
+        document.getElementById("orderDetailForm").style.fontWeight="normal";
+        document.getElementById("placeOrderForm").style.fontWeight="bold";
+    });
+    document.getElementById("orderDetailForm").addEventListener("click", function () {
+        document.getElementById("orderDetail").style.display="block";
+        document.getElementById("manageStore").style.display="none";
+        document.getElementById("dashboard").style.fontWeight="none";
+        document.getElementById("manageCustomer").style.display="none";
+        document.getElementById("placeOrder").style.display="none";
+        document.getElementById("home").style.fontWeight="normal";
+        document.getElementById("customerForm").style.fontWeight="normal";
+        document.getElementById("itemForm").style.fontWeight="normal";
+        document.getElementById("orderDetailForm").style.fontWeight="bold";
+        document.getElementById("placeOrderForm").style.fontWeight="normal";
+    });
+
+</script>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
