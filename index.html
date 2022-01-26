@@ -594,7 +594,7 @@
                     </div>
                 </div>
             </div>
-            <button id="customerDetailsBtn"  type="submit" class="btn btn text-white bg-success col-12 mt-4 fw-bolder shadow-lg"><a href="manageCustomer.html" class="text-decoration-none text-white ">Update/ View Details</a></button>
+            <button id="customerDetailsBtn"  type="submit" class="btn btn text-white bg-success col-12 mt-4 fw-bolder shadow-lg"><a  class="text-decoration-none text-white ">Update/ View Details</a></button>
         </div>
         <div class="col-4 border border shadow-lg rounded-3 bg-body">
             <h3 id="items" class="text-center mt-3 shadow">Items</h3>
@@ -637,13 +637,13 @@
                     </div>
                 </div>
             </div>
-            <button id="itemDetailsBtn"  type="submit" class="btn btn text-white bg-success col-12 mt-4 fw-bolder shadow-lg"><a href="manageStore.html" class="text-decoration-none text-white">Update/ View Details</a></button>
+            <button id="itemDetailsBtn"  type="submit" class="btn btn text-white bg-success col-12 mt-4 fw-bolder shadow-lg"><a  class="text-decoration-none text-white">Update/ View Details</a></button>
         </div>
         <div class="col-4 border border shadow-lg rounded-3 bg-body">
             <h3 id="orders" class="text-center mt-3 shadow">Orders</h3>
-            <button  id="purchaseBtn" type="submit" class="btn btn bg-primary mt-4 col-12 text-white fw-bolder shadow-lg"><a
-                    href="placeOrder.html" class="text-decoration-none text-white ">Purchase Order</a></button>
-            <button id="orderDetails" type="submit" class="btn btn text-white bg-success col-12 mt-4 fw-bolder shadow-lg"><a href="orderDetail.html" class="text-decoration-none text-white">View Details</a></button>
+            <button  id="purchaseOrderBtn" type="submit" class="btn btn bg-primary mt-4 col-12 text-white fw-bolder shadow-lg"><a
+                     class="text-decoration-none text-white ">Purchase Order</a></button>
+            <button id="orderDetailsBtn" type="submit" class="btn btn text-white bg-success col-12 mt-4 fw-bolder shadow-lg"><a  class="text-decoration-none text-white">View Details</a></button>
         </div>
     </section>
 </section>
@@ -1190,6 +1190,56 @@
         document.getElementById("orderDetailForm").style.fontWeight="bold";
         document.getElementById("placeOrderForm").style.fontWeight="normal";
     });
+
+    document.getElementById("customerDetailsBtn").addEventListener("click", function () {
+        document.getElementById("orderDetail").style.display="none";
+        document.getElementById("manageStore").style.display="none";
+        document.getElementById("dashboard").style.display="none";
+        document.getElementById("manageCustomer").style.display="block";
+        document.getElementById("placeOrder").style.display="none";
+        document.getElementById("home").style.fontWeight="normal";
+        document.getElementById("customerForm").style.fontWeight="bold";
+        document.getElementById("itemForm").style.fontWeight="normal";
+        document.getElementById("orderDetailForm").style.fontWeight="normal";
+        document.getElementById("placeOrderForm").style.fontWeight="normal";
+    });
+    document.getElementById("itemDetailsBtn").addEventListener("click", function () {
+        document.getElementById("orderDetail").style.display="none";
+        document.getElementById("manageStore").style.display="block";
+        document.getElementById("dashboard").style.display="none";
+        document.getElementById("manageCustomer").style.display="none";
+        document.getElementById("placeOrder").style.display="none";
+        document.getElementById("home").style.fontWeight="normal";
+        document.getElementById("customerForm").style.fontWeight="normal";
+        document.getElementById("itemForm").style.fontWeight="bold";
+        document.getElementById("orderDetailForm").style.fontWeight="normal";
+        document.getElementById("placeOrderForm").style.fontWeight="normal";
+    });
+    document.getElementById("purchaseOrderBtn").addEventListener("click", function () {
+        document.getElementById("orderDetail").style.display="none";
+        document.getElementById("manageStore").style.display="none";
+        document.getElementById("dashboard").style.display="none";
+        document.getElementById("manageCustomer").style.display="none";
+        document.getElementById("placeOrder").style.display="block";
+        document.getElementById("home").style.fontWeight="normal";
+        document.getElementById("customerForm").style.fontWeight="normal";
+        document.getElementById("itemForm").style.fontWeight="normal";
+        document.getElementById("orderDetailForm").style.fontWeight="normal";
+        document.getElementById("placeOrderForm").style.fontWeight="bold";
+    });
+    document.getElementById("orderDetailsBtn").addEventListener("click", function () {
+        document.getElementById("orderDetail").style.display="block";
+        document.getElementById("manageStore").style.display="none";
+        document.getElementById("dashboard").style.display="none";
+        document.getElementById("manageCustomer").style.display="none";
+        document.getElementById("placeOrder").style.display="none";
+        document.getElementById("home").style.fontWeight="normal";
+        document.getElementById("customerForm").style.fontWeight="normal";
+        document.getElementById("itemForm").style.fontWeight="normal";
+        document.getElementById("orderDetailForm").style.fontWeight="bold";
+        document.getElementById("placeOrderForm").style.fontWeight="normal";
+    });
+
 
 </script>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
