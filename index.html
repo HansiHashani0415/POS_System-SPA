@@ -37,7 +37,7 @@
             height: 30px;
             margin: auto;
         }
-        #searchFormHeader, #purchaseBtn, #invoiceFormHeader, #itemFormHeader, #addBtn{
+        #searchFormHeader, #purchaseBtn, #invoiceFormHeader, #itemFormHeader, #addBtn, #searchFormHeader1, #invoiceFormHeader1{
             background:#2ecc71;
         }
         #tHead{
@@ -652,18 +652,18 @@
         <h4 class="shadow"><i class="fas fa-users p-2"></i>Customer</h4>
         <div class="col-4 shadow-lg  mb-4  bg-body border rounded  border-2 me-5 mt-3 p-3 ">
             <form class="row g-3">
-                <div id="searchFormHeader" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded">Search Customer</div>
+                <div id="searchFormHeader1" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded">Search Customer</div>
                 <div class="col-md-12">
-                    <input type="email" class="form-control" id="inputNameNICTp" placeholder="Input Name/NIC/Tp here">
+                    <input type="email" class="form-control" id="inputNameNICTp1" placeholder="Input Name/NIC/Tp here">
                 </div>
                 <div class="col-2 me-3" >
-                    <button id="purchaseBtn" class="btn btn me-2 text-white fw-bolder" type="button">Search</button>
+                    <button id="purchaseBtn1" class="btn btn me-2 text-white fw-bolder" type="button">Search</button>
                 </div>
             </form>
         </div>
     </section>
     <table class="table table-borderless table-hover m-0">
-        <thead id="tHead" class="text-white bg-primary">
+        <thead id="tHead1" class="text-white bg-primary">
         <tr>
             <th>Customer ID</th>
             <th>Name</th>
@@ -682,16 +682,16 @@
                 <div>
                     <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal3">
                         Delete
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Confirmation Alert</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel3">Confirmation Alert</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -756,12 +756,12 @@
                     <input type="email" class="form-control" id="inputNameNICTp" placeholder="Input Item Code/ Description here">
                 </div>
                 <div class="col-2 me-3" >
-                    <button id="purchaseBtn" class="btn btn me-2 text-white fw-bolder" type="button">Search</button>
+                    <button id="purchaseBtn2" class="btn btn me-2 text-white fw-bolder" type="button">Search</button>
                 </div>
             </form>
         </div>
         <table class="table table-borderless table-hover m-0">
-            <thead id="tHead" class="text-white bg-primary">
+            <thead id="tHead2" class="text-white bg-primary">
             <tr>
                 <th>Item Code</th>
                 <th>Description</th>
@@ -780,16 +780,16 @@
                     <div>
                         <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal4">
                             Delete
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Confirmation Alert</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel4">Confirmation Alert</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -849,7 +849,7 @@
     <section class="row pe-4 ps-4">
         <h4 class="shadow"><i class="fas fa-shopping-cart p-2"></i>Order Details</h4>
         <table class="table table-borderless rounded table-hover mt-3 ">
-            <thead id="tHead" class="text-white bg-primary ">
+            <thead id="tHead3" class="text-white bg-primary ">
             <tr>
                 <th>Order ID</th>
                 <th>Date</th>
@@ -878,16 +878,16 @@
                     <div>
                         <button  type="submit" class="btn btn-sm btn-success text-white  ">View Details</button>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal5">
                             Delete
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel5" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Confirmation Alert</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel5">Confirmation Alert</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -927,22 +927,22 @@
             <section class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 shadow-lg  bg-body border rounded  border-2 me-4 mt-3 p-3 ">
                     <form class="row g-3">
-                        <div id="invoiceFormHeader" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded ">Customer Details</div>
+                        <div id="invoiceFormHeader1" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded ">Customer Details</div>
                         <div class="col-md-12">
-                            <label for="inputOrderID" class="form-label">Customer ID :</label>
-                            <input type="text" class="form-control" id="inputOrderID">
+                            <label for="inputOrderID1" class="form-label">Customer ID :</label>
+                            <input type="text" class="form-control" id="inputOrderID1">
                         </div>
                         <div class="col-md-12">
-                            <label for="inputDate" class="form-label">Name :</label>
-                            <input type="text" class="form-control" id="inputDate" >
+                            <label for="inputDate1" class="form-label">Name :</label>
+                            <input type="text" class="form-control" id="inputDate1" >
                         </div>
                         <div class="col-12">
-                            <label for="inputAddress" class="form-label">Address :</label>
-                            <input type="text" class="form-control" id="inputAddress" >
+                            <label for="inputAddress1" class="form-label">Address :</label>
+                            <input type="text" class="form-control" id="inputAddress1" >
                         </div>
                         <div class="col-12">
-                            <label for="inputCustomerID" class="form-label">Telephone :</label>
-                            <input type="text" class="form-control" id="inputCustomerID">
+                            <label for="inputCustomerID1" class="form-label">Telephone :</label>
+                            <input type="text" class="form-control" id="inputCustomerID1">
                         </div>
                     </form>
 
@@ -992,12 +992,12 @@
                     <input type="text" class="form-control" id="inputOrderID" placeholder="C001">
                 </div>
                 <div class="col-md-12">
-                    <label for="inputName" class="form-label">Name :</label>
-                    <input type="text" class="form-control" id="inputName" >
+                    <label for="inputName1" class="form-label">Name :</label>
+                    <input type="text" class="form-control" id="inputName1" >
                 </div>
                 <div class="col-12">
-                    <label for="inputAddress" class="form-label">Address :</label>
-                    <input type="text" class="form-control" id="inputAddress" >
+                    <label for="inputAddress2" class="form-label">Address :</label>
+                    <input type="text" class="form-control" id="inputAddress2" >
 
                 </div>
                 <div class="col-12">
@@ -1019,20 +1019,20 @@
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputItemCode" class="form-label">Item Code :</label>
-                    <input type="text" class="form-control" id="inputItemCode" placeholder="Search Item Code Here">
+                    <label for="inputItemCode1" class="form-label">Item Code :</label>
+                    <input type="text" class="form-control" id="inputItemCode1" placeholder="Search Item Code Here">
                 </div>
                 <div class="col-7">
-                    <label for="inputItemName" class="form-label">Description :</label>
-                    <input type="text" class="form-control" id="inputItemName" >
+                    <label for="inputItemName1" class="form-label">Description :</label>
+                    <input type="text" class="form-control" id="inputItemName1" >
                 </div>
                 <div class="col-5">
-                    <label for="inputPrice" class="form-label">Unit Price :</label>
-                    <input type="text" class="form-control" id="inputPrice" >
+                    <label for="inputPrice1" class="form-label">Unit Price :</label>
+                    <input type="text" class="form-control" id="inputPrice1" >
                 </div>
                 <div class="col-6">
-                    <label for="inputQtyOnHand" class="form-label">Qty On Hand :</label>
-                    <input type="text" class="form-control" id="inputQtyOnHand" >
+                    <label for="inputQtyOnHand1" class="form-label">Qty On Hand :</label>
+                    <input type="text" class="form-control" id="inputQtyOnHand1" >
                 </div>
                 <div class="col-6">
                     <label for="inputOrderQty" class="form-label">Enter Order Qty :</label>
@@ -1070,7 +1070,7 @@
                     <h3 class="text-danger">Total : 945 Rs/=</h3>
                 </div>
                 <div class="col-12 mx-auto">
-                    <button  id="purchaseBtn" type="submit" class="btn btn-sm text-white fw-bolder">Confirm Order</button>
+                    <button  id="purchaseBtn3" type="submit" class="btn btn-sm text-white fw-bolder">Confirm Order</button>
                     <button   type="submit" class="btn btn-sm text-white btn-danger fw-bolder">Cancel Order</button>
                 </div>
             </form>
@@ -1118,7 +1118,7 @@
     </section>
 </section>
 <script>
-    document.getElementById("dashboard").style.fontWeight="bold";
+    document.getElementById("home").style.fontWeight="bold";
     document.getElementById("manageCustomer").style.display="none";
     document.getElementById("manageStore").style.display="none";
     document.getElementById("orderDetail").style.display="none";
@@ -1131,7 +1131,7 @@
 
 
     document.getElementById("home").addEventListener("click", function () {
-        document.getElementById("dashboard").style.fontWeight="block";
+        document.getElementById("dashboard").style.display="block";
         document.getElementById("manageCustomer").style.display="none";
         document.getElementById("manageStore").style.display="none";
         document.getElementById("orderDetail").style.display="none";
@@ -1144,7 +1144,7 @@
     });
     document.getElementById("customerForm").addEventListener("click", function () {
         document.getElementById("manageCustomer").style.display="block";
-        document.getElementById("dashboard").style.fontWeight="none";
+        document.getElementById("dashboard").style.display="none";
         document.getElementById("manageStore").style.display="none";
         document.getElementById("orderDetail").style.display="none";
         document.getElementById("placeOrder").style.display="none";
@@ -1156,7 +1156,7 @@
     });
     document.getElementById("itemForm").addEventListener("click", function () {
         document.getElementById("manageStore").style.display="block";
-        document.getElementById("dashboard").style.fontWeight="none";
+        document.getElementById("dashboard").style.display="none";
         document.getElementById("manageCustomer").style.display="none";
         document.getElementById("orderDetail").style.display="none";
         document.getElementById("placeOrder").style.display="none";
@@ -1169,7 +1169,7 @@
     document.getElementById("placeOrderForm").addEventListener("click", function () {
         document.getElementById("placeOrder").style.display="block";
         document.getElementById("manageStore").style.display="none";
-        document.getElementById("dashboard").style.fontWeight="none";
+        document.getElementById("dashboard").style.display="none";
         document.getElementById("manageCustomer").style.display="none";
         document.getElementById("orderDetail").style.display="none";
         document.getElementById("home").style.fontWeight="normal";
@@ -1181,7 +1181,7 @@
     document.getElementById("orderDetailForm").addEventListener("click", function () {
         document.getElementById("orderDetail").style.display="block";
         document.getElementById("manageStore").style.display="none";
-        document.getElementById("dashboard").style.fontWeight="none";
+        document.getElementById("dashboard").style.display="none";
         document.getElementById("manageCustomer").style.display="none";
         document.getElementById("placeOrder").style.display="none";
         document.getElementById("home").style.fontWeight="normal";
