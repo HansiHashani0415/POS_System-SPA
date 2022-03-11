@@ -588,7 +588,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="col-2 btn btn-danger " >Clear</button>
-                                <button id="btnSaveCustomer" type="button" class="col-3 btn btn-primary" data-bs-dismiss="modal">Save</button>
+                                <button id="btnSaveCustomer" type="button" class="col-3 btn btn-primary" >Save</button>
                             </div>
                         </div>
                     </div>
@@ -661,6 +661,42 @@
                 </div>
             </form>
         </div>
+        <div>
+            <div class="modal fade" id="addNewCustomerModal2" tabindex="-1" aria-labelledby="addNewCustomerModalLabel2" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-primary" id="addNewCustomerModalLabel2">Update/Delete Customer</h5>
+                            <button  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row g-3">
+                                <div class="col-md-12">
+                                    <label for="txtCustomerID1" class="form-label">Customer ID :</label>
+                                    <input type="text" class="form-control" id="txtCustomerID1">
+                                </div>
+                                <div class="col-12">
+                                    <label for="txtCustomerName1" class="form-label">Name :</label>
+                                    <input type="text" class="form-control" id="txtCustomerName1" >
+                                </div>
+                                <div class="col-12">
+                                    <label for="txtCustomerAddress1" class="form-label">Address :</label>
+                                    <input type="text" class="form-control" id="txtCustomerAddress1" >
+                                </div>
+                                <div class="col-12">
+                                    <label for="txtTelephone1" class="form-label">Telephone :</label>
+                                    <input type="text" class="form-control" id="txtTelephone1">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btnDeleteCustomer2" type="button" class="col-2 btn btn-danger " >Delete</button>
+                            <button id="btnUpdateCustomer" type="button" class="col-3 btn btn-primary" >Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <table class="table table-borderless table-hover m-0">
         <thead id="tHead1" class="text-white bg-primary">
@@ -669,80 +705,10 @@
             <th>Name</th>
             <th>Address</th>
             <th>Telephone</th>
-            <th>Option</th>
+           <!-- <th>Option</th>-->
         </tr>
         </thead>
         <tbody id="customerDetailsTable" class="table-primary">
-        <!--<tr class="table-hover fw-light">
-            <th>C001</th>
-            <th>Hansi</th>
-            <th>Matara</th>
-            <th>0711757824</th>
-            <th>
-                <div>
-                    <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
-                    &lt;!&ndash; Button trigger modal &ndash;&gt;
-                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                        Delete
-                    </button>
-
-                    &lt;!&ndash; Modal &ndash;&gt;
-                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel3">Confirmation Alert</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Are you sure whether you want to delete this record?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Yes</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </th>
-        </tr>
-        <tr class="table-hover fw-light">
-            <th>C002</th>
-            <th>Hansi</th>
-            <th>Matara</th>
-            <th>0711757824</th>
-            <th>
-                <div>
-                    <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
-                    <button  type="submit" class="btn btn-sm btn-danger text-white  ">Delete</button>
-                </div>
-            </th>
-        </tr>
-        <tr class="table-hover fw-light">
-            <th>C003</th>
-            <th>Hansi</th>
-            <th>Matara</th>
-            <th>0711757824</th>
-            <th>
-                <div>
-                    <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
-                    <button  type="submit" class="btn btn-sm btn-danger text-white  ">Delete</button>
-                </div>
-            </th>
-        </tr>
-        <tr class="table-hover fw-light">
-            <th>C004</th>
-            <th>Hansi</th>
-            <th>Matara</th>
-            <th>0711757824</th>
-            <th>
-                <div>
-                    <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
-                    <button  type="submit" class="btn btn-sm btn-danger text-white  ">Delete</button>
-                </div>
-            </th>
-        </tr>-->
         </tbody>
     </table>
 </section>
@@ -760,36 +726,41 @@
                 </div>
             </form>
         </div>
-        <table class="table table-borderless table-hover m-0">
-            <thead id="tHead2" class="text-white bg-primary">
-            <tr>
-                <th>Item Code</th>
-                <th>Description</th>
-                <th>Unit Price</th>
-                <th>Qty On Hand</th>
-                <th>Option</th>
-            </tr>
-            </thead>
-            <tbody id="itemDetailsTable" class="table-primary">
-            <!--<tr class="table-hover fw-light">
-                <th>I001</th>
-                <th>Rice</th>
-                <th>150.00</th>
-                <th>200</th>
-                <th>
-                    <div>
-                        <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
-                        &lt;!&ndash; Button trigger modal &ndash;&gt;
-                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal4">
-                            Delete
-                        </button>
 
-                        &lt;!&ndash; Modal &ndash;&gt;
-                        <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel4" aria-hidden="true">
+        <div class="modal fade" id="modelItem" tabindex="-1" aria-labelledby="modelItemLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="modelItemLabel">Update/Delete Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3">
+                            <div class="col-md-12">
+                                <label for="txtItemCode1" class="form-label">Item Code :</label>
+                                <input type="text" class="form-control" id="txtItemCode1" placeholder="I001">
+                            </div>
+                            <div class="col-12">
+                                <label for="txtDescription1" class="form-label">Description :</label>
+                                <input type="text" class="form-control" id="txtDescription1" placeholder="Rice">
+                            </div>
+                            <div class="col-12">
+                                <label for="txtUnitPrice1" class="form-label">Unit Price :</label>
+                                <input type="text" class="form-control" id="txtUnitPrice1" placeholder="150.00">
+                            </div>
+                            <div class="col-12">
+                                <label for="txtQtyOnHand1" class="form-label">Qty On Hand :</label>
+                                <input type="number" class="form-control" id="txtQtyOnHand1" placeholder="200">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="btnDeleteItem1" class="col-2 btn btn-danger " >Delete</button>
+                        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel4">Confirmation Alert</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel3">Confirmation Alert</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -802,45 +773,23 @@
                                 </div>
                             </div>
                         </div>
+                        <button id="btnUpdateItem1" type="button" class="col-3 btn btn-primary" data-bs-dismiss="modal">Update</button>
                     </div>
-                </th>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-borderless table-hover m-0">
+            <thead id="tHead2" class="text-white bg-primary">
+            <tr>
+                <th>Item Code</th>
+                <th>Description</th>
+                <th>Unit Price</th>
+                <th>Qty On Hand</th>
+                <!--<th>Option</th>-->
             </tr>
-            <tr class="table-hover fw-light">
-                <th>I001</th>
-                <th>Rice</th>
-                <th>150.00</th>
-                <th>200</th>
-                <th>
-                    <div>
-                        <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
-                        <button  type="submit" class="btn btn-sm btn-danger text-white  ">Delete</button>
-                    </div>
-                </th>
-            </tr>
-            <tr class="table-hover fw-light">
-                <th>I001</th>
-                <th>Rice</th>
-                <th>150.00</th>
-                <th>200</th>
-                <th>
-                    <div>
-                        <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
-                        <button  type="submit" class="btn btn-sm btn-danger text-white  ">Delete</button>
-                    </div>
-                </th>
-            </tr>
-            <tr class="table-hover fw-light">
-                <th>I001</th>
-                <th>Rice</th>
-                <th>150.00</th>
-                <th>200</th>
-                <th>
-                    <div>
-                        <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
-                        <button  type="submit" class="btn btn-sm btn-danger text-white  ">Delete</button>
-                    </div>
-                </th>
-            </tr>-->
+            </thead>
+            <tbody id="itemDetailsTable" class="table-primary">
             </tbody>
         </table>
     </section>
@@ -1263,21 +1212,26 @@
         $("#linkToDashboard").css("fontWeight","normal");
     });
 
+    //====================================================================//
+
     $("#btnSaveCustomer").on("click", function () {
+
+        $("#customerDetailsTable>tr").off("click");
+
        let customerID = $("#txtCustomerID").val();
        let customerName = $("#txtCustomerName").val();
        let customerAddress = $("#txtCustomerAddress").val();
        let customerTelephone = $("#txtTelephone").val();
 
-       let customerRow = `<tr><td>${customerID}</td><td>${customerName}</td><td>${customerAddress}</td><td>${customerTelephone}</td><td>
+       let customerRow = `<tr><td>${customerID}</td><td>${customerName}</td><td>${customerAddress}</td><td>${customerTelephone}</td><!--<td>
                 <div>
-                    <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
+                    <button id="btnUpdateCustomer"  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
 
-                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                    <button id="btnDeleteCustomer" type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal3">
                         Delete
                     </button>
 
-                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                    &lt;!&ndash;<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -1293,21 +1247,46 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>&ndash;&gt;
                 </div>
-            </td></tr>`;
+            </td>--></tr>`;
 
        $("#customerDetailsTable").append(customerRow);
+       $("#customerDetailsTable>tr").on("click", function () {
+
+           /* let id = $(this).parent().parent().parent().children(":eq(0)").text();
+           let name = $(this).parent().parent().parent().children(":eq(1)").text();
+           let address = $(this).parent().parent().parent().children(":eq(2)").text();
+           let tp = $(this).parent().parent().parent().children(":eq(3)").text();
+           console.log(id, name, address,tp);*/
+           let id = $(this).children(":eq(0)").text();
+           let name = $(this).children(":eq(1)").text();
+           let address = $(this).children(":eq(2)").text();
+           let tp = $(this).children(":eq(3)").text();
+           console.log(id, name, address,tp);
+
+           $("#addNewCustomerModal2").modal('show');
+
+           $("#txtCustomerID1").val(id);
+           $("#txtCustomerName1").val(name);
+           $("#txtCustomerAddress1").val(address);
+           $("#txtTelephone1").val(tp);
+       });
 
     });
 
+    //====================================================================//
+
     $("#btnSaveItem").on("click", function () {
+
+        $("#itemDetailsTable>tr").off("click");
+
         let itemCode = $("#txtItemCode").val();
         let description = $("#txtDescription").val();
         let unitPrice = $("#txtUnitPrice").val();
         let qtyOnHand = $("#txtQtyOnHand").val();
 
-        let itemRow = `<tr><td>${itemCode}</td><td>${description}</td><td>${unitPrice}</td><td>${qtyOnHand}</td><td>
+        let itemRow = `<tr><td>${itemCode}</td><td>${description}</td><td>${unitPrice}</td><td>${qtyOnHand}</td><!--<td>
                 <div>
                     <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
 
@@ -1333,9 +1312,35 @@
                         </div>
                     </div>
                 </div>
-            </td></tr>`;
+            </td>--></tr>`;
 
         $("#itemDetailsTable").append(itemRow);
+
+        $("#itemDetailsTable>tr").on("click", function () {
+
+            /* let id = $(this).parent().parent().parent().children(":eq(0)").text();
+            let name = $(this).parent().parent().parent().children(":eq(1)").text();
+            let address = $(this).parent().parent().parent().children(":eq(2)").text();
+            let tp = $(this).parent().parent().parent().children(":eq(3)").text();
+            console.log(id, name, address,tp);*/
+            let code = $(this).children(":eq(0)").text();
+            let desc = $(this).children(":eq(1)").text();
+            let unitPrice = $(this).children(":eq(2)").text();
+            let qtyOnHand = $(this).children(":eq(3)").text();
+            console.log(code, desc, unitPrice,qtyOnHand);
+
+            $("#modelItem").modal('show');
+
+            $("#txtItemCode1").val(code);
+            $("#txtDescription1").val(desc);
+            $("#txtUnitPrice1").val(unitPrice);
+            $("#txtQtyOnHand1").val(qtyOnHand);
+
+           /* $("#btnDeleteItem1").on("click",function () {
+                $("#exampleModal3").modal('show');
+            });
+*/
+        });
 
     });
 
