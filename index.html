@@ -490,19 +490,19 @@
             <div class="collapse navbar-collapse text-primary" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item ">
-                        <a id="home" class="nav-link text-primary" >Dashboard</a>
+                        <a id="linkToDashboard" class="nav-link text-primary" >Dashboard</a>
                     </li>
                     <li class="nav-item ">
-                        <a id="customerForm" class="nav-link text-primary " >Customers</a>
+                        <a id="linkToManageCustomer" class="nav-link text-primary " >Customers</a>
                     </li>
                     <li class="nav-item ">
-                        <a id="itemForm" class="nav-link text-primary" >Items</a>
+                        <a id="linkToManageItem" class="nav-link text-primary" >Items</a>
                     </li>
                     <li class="nav-item ">
-                        <a id="placeOrderForm" class="nav-link text-primary" >Purchase Order</a>
+                        <a id="linkToPlaceOrder" class="nav-link text-primary" >Purchase Order</a>
                     </li>
                     <li class="nav-item ">
-                        <a id="orderDetailForm" class="nav-link text-primary" >Orders</a>
+                        <a id="linkToOrderDetails" class="nav-link text-primary" >Orders</a>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -1122,7 +1122,91 @@
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <script>
-    document.getElementById("home").style.fontWeight="bold";
+
+    // hide contents except Dashboard
+    $("#dashboard").css("display","block");
+    $("#manageCustomer").css("display","none");
+    $("#manageStore").css("display","none");
+    $("#placeOrder").css("display","none");
+    $("#orderDetail").css("display","none");
+
+    $("#linkToDashboard").css("fontWeight","bold");
+    $("#linkToDashboard").css("cursor","pointer");
+    $("#linkToManageCustomer").css("cursor","pointer");
+    $("#linkToManageItem").css("cursor","pointer");
+    $("#linkToPlaceOrder").css("cursor","pointer");
+    $("#linkToOrderDetails").css("cursor","pointer");
+
+    $("#linkToDashboard").on("click", function () {
+        $("#dashboard").css("display","block");
+        $("#manageCustomer").css("display","none");
+        $("#manageStore").css("display","none");
+        $("#placeOrder").css("display","none");
+        $("#orderDetail").css("display","none");
+
+        $("#linkToDashboard").css("fontWeight","bold");
+        $("#linkToManageCustomer").css("fontWeight","normal");
+        $("#linkToManageItem").css("fontWeight","normal");
+        $("#linkToPlaceOrder").css("fontWeight","normal");
+        $("#linkToOrderDetails").css("fontWeight","normal");
+    });
+
+    $("#linkToManageCustomer").on("click", function () {
+        $("#manageCustomer").css("display","block");
+        $("#dashboard").css("display","none");
+        $("#manageStore").css("display","none");
+        $("#placeOrder").css("display","none");
+        $("#orderDetail").css("display","none");
+
+        $("#linkToManageCustomer").css("fontWeight","bold");
+        $("#linkToManageItem").css("fontWeight","normal");
+        $("#linkToPlaceOrder").css("fontWeight","normal");
+        $("#linkToOrderDetails").css("fontWeight","normal");
+        $("#linkToDashboard").css("fontWeight","normal");
+    });
+
+    $("#linkToManageItem").on("click", function () {
+        $("#manageStore").css("display","block");
+        $("#manageCustomer").css("display","none");
+        $("#dashboard").css("display","none");
+        $("#placeOrder").css("display","none");
+        $("#orderDetail").css("display","none");
+
+        $("#linkToManageItem").css("fontWeight","bold");
+        $("#linkToManageCustomer").css("fontWeight","normal");
+        $("#linkToPlaceOrder").css("fontWeight","normal");
+        $("#linkToOrderDetails").css("fontWeight","normal");
+        $("#linkToDashboard").css("fontWeight","normal");
+    });
+
+    $("#linkToPlaceOrder").on("click", function () {
+        $("#placeOrder").css("display","block");
+        $("#manageStore").css("display","none");
+        $("#manageCustomer").css("display","none");
+        $("#dashboard").css("display","none");
+        $("#orderDetail").css("display","none");
+
+        $("#linkToPlaceOrder").css("fontWeight","bold");
+        $("#linkToManageItem").css("fontWeight","normal");
+        $("#linkToManageCustomer").css("fontWeight","normal");
+        $("#linkToOrderDetails").css("fontWeight","normal");
+        $("#linkToDashboard").css("fontWeight","normal");
+    });
+
+    $("#linkToOrderDetails").on("click", function () {
+        $("#orderDetail").css("display","block");
+        $("#placeOrder").css("display","none");
+        $("#manageStore").css("display","none");
+        $("#manageCustomer").css("display","none");
+        $("#dashboard").css("display","none");
+
+        $("#linkToOrderDetails").css("fontWeight","bold");
+        $("#linkToPlaceOrder").css("fontWeight","normal");
+        $("#linkToManageItem").css("fontWeight","normal");
+        $("#linkToManageCustomer").css("fontWeight","normal");
+        $("#linkToDashboard").css("fontWeight","normal");
+    });
+    /*document.getElementById("home").style.fontWeight="bold";
     document.getElementById("manageCustomer").style.display="none";
     document.getElementById("manageStore").style.display="none";
     document.getElementById("orderDetail").style.display="none";
@@ -1131,10 +1215,10 @@
     document.getElementById("customerForm").style.cursor="pointer";
     document.getElementById("itemForm").style.cursor="pointer";
     document.getElementById("placeOrderForm").style.cursor="pointer";
-    document.getElementById("orderDetailForm").style.cursor="pointer";
+    document.getElementById("orderDetailForm").style.cursor="pointer";*/
 
 
-    document.getElementById("home").addEventListener("click", function () {
+   /* document.getElementById("home").addEventListener("click", function () {
         document.getElementById("dashboard").style.display="block";
         document.getElementById("manageCustomer").style.display="none";
         document.getElementById("manageStore").style.display="none";
@@ -1243,7 +1327,7 @@
         document.getElementById("orderDetailForm").style.fontWeight="bold";
         document.getElementById("placeOrderForm").style.fontWeight="normal";
     });
-
+*/
 
 </script>
 </body>
