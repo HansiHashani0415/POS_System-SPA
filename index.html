@@ -631,7 +631,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="col-2 btn btn-danger " >Clear</button>
-                                <button id="btnSaveItem" type="button" class="col-3 btn btn-primary" data-bs-dismiss="modal">Save</button>
+                                <button id="btnSaveItem" type="button" class="col-3 btn btn-primary" >Save</button>
                             </div>
                         </div>
                     </div>
@@ -773,7 +773,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button id="btnUpdateItem1" type="button" class="col-3 btn btn-primary" data-bs-dismiss="modal">Update</button>
+                        <button id="btnUpdateItem1" type="button" class="col-3 btn btn-primary" >Update</button>
                     </div>
                 </div>
             </div>
@@ -1072,7 +1072,8 @@
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <script>
 
-    // hide contents except Dashboard
+    // hide contents except Dashboard ---------------------------
+
     $("#dashboard").css("display","block");
     $("#manageCustomer").css("display","none");
     $("#manageStore").css("display","none");
@@ -1212,7 +1213,7 @@
         $("#linkToDashboard").css("fontWeight","normal");
     });
 
-    //====================================================================//
+    //  Save Customer ---------------------------------------------
 
     $("#btnSaveCustomer").on("click", function () {
 
@@ -1275,7 +1276,7 @@
 
     });
 
-    //====================================================================//
+    //  Save Item  ---------------------------------------------
 
     $("#btnSaveItem").on("click", function () {
 
@@ -1335,13 +1336,96 @@
             $("#txtDescription1").val(desc);
             $("#txtUnitPrice1").val(unitPrice);
             $("#txtQtyOnHand1").val(qtyOnHand);
-
            /* $("#btnDeleteItem1").on("click",function () {
                 $("#exampleModal3").modal('show');
-            });
-*/
+            });*/
         });
+    });
 
+    //  Focus TextFields ---------------------------------------------
+
+    $("#txtCustomerID").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtCustomerName").focus();
+        }
+    });
+    $("#txtCustomerName").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtCustomerAddress").focus();
+        }
+    });
+    $("#txtCustomerAddress").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtTelephone").focus();
+        }
+    });
+    $("#txtTelephone").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#btnSaveCustomer").focus();
+        }
+    });
+
+    $("#txtCustomerID1").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtCustomerName1").focus();
+        }
+    });
+    $("#txtCustomerName1").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtCustomerAddress1").focus();
+        }
+    });
+    $("#txtCustomerAddress1").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtTelephone1").focus();
+        }
+    });
+    $("#txtTelephone1").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#btnUpdateCustomer").focus();
+        }
+    });
+
+    $("#txtItemCode").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtDescription").focus();
+        }
+    });
+    $("#txtDescription").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtUnitPrice").focus();
+        }
+    });
+    $("#txtUnitPrice").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtQtyOnHand").focus();
+        }
+    });
+    $("#txtQtyOnHand").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#btnSaveItem").focus();
+        }
+    });
+
+    $("#txtItemCode1").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtDescription1").focus();
+        }
+    });
+    $("#txtDescription1").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtUnitPrice1").focus();
+        }
+    });
+    $("#txtUnitPrice1").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#txtQtyOnHand1").focus();
+        }
+    });
+    $("#txtQtyOnHand1").keydown(function (event) {
+        if (event.key == "Enter"){
+            $("#btnUpdateItem1").focus();
+        }
     });
 
 </script>
