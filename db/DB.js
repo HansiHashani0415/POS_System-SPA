@@ -14,6 +14,18 @@ function updateCustomer(id, name, address, tp) {
     return false;
 }
 
+function updateItem(code, desc, unitPrice, qtyOnHand) {
+    for (let i = 0; i < itemDB.length; i++) {
+        if(itemDB[i].getItemCode()===code){
+            itemDB[i].setItemDesc(desc);
+            itemDB[i].setItemUnitPrice(unitPrice);
+            itemDB[i].setItemQtyOnHand(qtyOnHand);
+            return true;
+        }
+    }
+    return false;
+}
+
 function deleteCustomer(id) {
     for (let i = 0; i < customerDB.length; i++) {
         if(customerDB[i].getCusID() === id){
@@ -25,7 +37,17 @@ function deleteCustomer(id) {
     }
     return false;
 }
-
+function deleteItem(code) {
+    for (let i = 0; i < itemDB.length; i++) {
+        if(itemDB[i].getItemCode() === code){
+            itemDB.splice(i,1);
+            $("#itemDetailsTable").empty();
+            loadAllItems();
+            clearAllItems();
+        }
+    }
+    return false;
+}
 function saveCustomer(customer) {
     customerDB.push(customer);
 
@@ -47,6 +69,27 @@ function saveCustomer(customer) {
 
 }
 
+function saveItem(item) {
+    itemDB.push(item);
+
+    $("#itemDetailsTable>tr").on("click", function () {
+
+        let code = $(this).children(":eq(0)").text();
+        let desc = $(this).children(":eq(1)").text();
+        let unitPrice = $(this).children(":eq(2)").text();
+        let qtyOnHand = $(this).children(":eq(3)").text();
+        console.log(code,desc,unitPrice,qtyOnHand);
+
+        $("#modelItem").modal('show');
+
+        $("#txtItemCode1").val(code);
+        $("#txtDescription1").val(desc);
+        $("#txtUnitPrice1").val(unitPrice);
+        $("#txtQtyOnHand1").val(qtyOnHand);
+    });
+
+}
+
 function loadAllCustomers() {
     $("#customerDetailsTable").empty();
     for (var i of customerDB) {
@@ -56,10 +99,28 @@ function loadAllCustomers() {
     }
 }
 
+function loadAllItems() {
+    $("#itemDetailsTable").empty();
+    for (var i of itemDB) {
+        let itemRow = `<tr><td>${i.getItemCode()}</td><td>${i.getItemDesc()}</td><td>${i.getItemUnitPrice()}</td><td>${i.getItemQtyOnHand()}</td></tr>`;
+        console.log(itemRow)
+        $("#itemDetailsTable").append(itemRow);
+    }
+}
+
 function searchCustomer(id) {
     for (let i = 0; i<customerDB.length;i++){
         if (customerDB[i].getCusID()===id){
             return customerDB[i];
+        }
+    }
+    return false;
+}
+
+function searchItem(code) {
+    for (let i = 0; i<itemDB.length;i++){
+        if (itemDB[i].getItemCode()===code){
+            return itemDB[i];
         }
     }
     return false;

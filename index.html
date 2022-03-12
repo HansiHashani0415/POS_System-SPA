@@ -607,20 +607,23 @@
                                 <form class="row g-3">
                                     <div class="col-md-12">
                                         <label for="txtCustomerID" class="form-label">Customer ID :</label>
-                                        <input type="text" class="form-control" id="txtCustomerID" placeholder="C001">
+                                        <input type="text" class="form-control" id="txtCustomerID" >
                                         <p><small id="lblCusID" class="text-danger pl-1"></small></p>
                                     </div>
                                     <div class="col-12">
                                         <label for="txtCustomerName" class="form-label">Name :</label>
-                                        <input type="text" class="form-control" id="txtCustomerName" placeholder="Hansi">
+                                        <input type="text" class="form-control" id="txtCustomerName" >
+                                        <p><small id="lblCusName" class="text-danger pl-1"></small></p>
                                     </div>
                                     <div class="col-12">
                                         <label for="txtCustomerAddress" class="form-label">Address :</label>
-                                        <input type="text" class="form-control" id="txtCustomerAddress" placeholder="Matara">
+                                        <input type="text" class="form-control" id="txtCustomerAddress" >
+                                        <p><small id="lblCusAddress" class="text-danger pl-1"></small></p>
                                     </div>
                                     <div class="col-12">
                                         <label for="txtTelephone" class="form-label">Telephone :</label>
-                                        <input type="text" class="form-control" id="txtTelephone" placeholder="0711757824">
+                                        <input type="text" class="form-control" id="txtTelephone" >
+                                        <p><small id="lblCusTp" class="text-danger pl-1"></small></p>
                                     </div>
                                 </form>
                             </div>
@@ -651,19 +654,23 @@
                                 <form class="row g-3">
                                     <div class="col-md-12">
                                         <label for="txtItemCode" class="form-label">Item Code :</label>
-                                        <input type="text" class="form-control" id="txtItemCode" placeholder="I001">
+                                        <input type="text" class="form-control" id="txtItemCode" >
+                                        <p><small id="lblItemCode" class="text-danger pl-1"></small></p>
                                     </div>
                                     <div class="col-12">
                                         <label for="txtDescription" class="form-label">Description :</label>
-                                        <input type="text" class="form-control" id="txtDescription" placeholder="Rice">
+                                        <input type="text" class="form-control" id="txtDescription" >
+                                        <p><small id="lblItemDesc" class="text-danger pl-1"></small></p>
                                     </div>
                                     <div class="col-12">
                                         <label for="txtUnitPrice" class="form-label">Unit Price :</label>
-                                        <input type="text" class="form-control" id="txtUnitPrice" placeholder="150.00">
+                                        <input type="text" class="form-control" id="txtUnitPrice" >
+                                        <p><small id="lblUnitPrice" class="text-danger pl-1"></small></p>
                                     </div>
                                     <div class="col-12">
                                         <label for="txtQtyOnHand" class="form-label">Qty On Hand :</label>
-                                        <input type="number" class="form-control" id="txtQtyOnHand" placeholder="200">
+                                        <input type="number" class="form-control" id="txtQtyOnHand" >
+                                        <p><small id="lblQtyOnHand" class="text-danger pl-1"></small></p>
                                     </div>
                                 </form>
                             </div>
@@ -688,7 +695,7 @@
     <section class="row pe-4 ps-4 ">
         <div class="col-4 shadow-lg  mb-4  bg-body border rounded  border-2 me-5 mt-3 p-3 ">
             <form class="row g-3">
-                <div id="searchFormHeader1" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded">Search Customer</div>
+                <div class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded bg-success">Search Customer</div>
                 <div class="col-md-12">
                     <input type="email" class="form-control" id="inputNameNICTp1" placeholder="Input Customer ID here">
                 </div>
@@ -734,7 +741,7 @@
             </div>
         </div>
     </section>
-    <table class="table table-borderless table-hover table-striped m-0">
+    <table class="table table-borderless rounded table-hover m-0">
         <thead id="tHead1" class="text-white bg-primary">
         <tr>
             <th>Customer ID</th>
@@ -752,12 +759,12 @@
     <section class="row pe-4 ps-4 ">
         <div class="col-4 shadow-lg  mb-4  bg-body border rounded  border-2 me-5 mt-3 p-3 ">
             <form class="row g-3">
-                <div id="searchFormHeader" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded">Search Item</div>
+                <div  class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded bg-success">Search Item</div>
                 <div class="col-md-12">
                     <input type="email" class="form-control" id="inputNameNICTp" placeholder="Input Item Code here">
                 </div>
                 <div class="col-2 me-3" >
-                    <button id="purchaseBtn2" class="btn btn me-2 text-white fw-bolder" type="button">Search</button>
+                    <button id="btnSearchItem" class="btn btn me-2 text-white fw-bolder bg-success" type="button">Search</button>
                 </div>
             </form>
         </div>
@@ -790,7 +797,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="btnDeleteItem1" class="col-2 btn btn-danger " >Delete</button>
+                        <button id="btnDeleteItem" type="button" class="col-2 btn btn-danger " >Delete</button>
                         <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -814,7 +821,7 @@
             </div>
         </div>
 
-        <table class="table table-borderless table-hover m-0">
+        <table class="table table-borderless rounded table-hover m-0">
             <thead id="tHead2" class="text-white bg-primary">
             <tr>
                 <th>Item Code</th>
@@ -833,10 +840,10 @@
     <section class="row pe-4 ps-4">
         <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-3 shadow-lg  mb-4  bg-body border rounded  border-2 me-5 mt-3 p-3 ">
             <form class="row g-3">
-                <div id="invoiceFormHeader" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded ">Customer Details</div>
+                <div class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded bg-success ">Customer Details</div>
                 <div class="col-md-12">
                     <label for="txtCusIdInOrder" class="form-label">Cusomer ID :</label>
-                    <input type="text" class="form-control" id="txtCusIdInOrder">
+                    <input type="text" class="form-control" id="txtCusIdInOrder"  placeholder="Search Customer ID Here">
                 </div>
                 <div class="col-md-12">
                     <label for="txtNameInOrder" class="form-label">Name :</label>
@@ -855,7 +862,7 @@
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-5 shadow-lg  mb-4  bg-body border rounded  border-2 me-5 mt-3 p-3">
             <form class="row g-3">
-                <div id="itemFormHeader" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded ">Select Item</div>
+                <div class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded bg-success">Select Item</div>
                 <div class="col-md-6">
                     <label for="inputItem" class="form-label">Item Code :</label>
                     <select id="inputItem" class="form-select" onchange="loadItemCodesToTheCombo()">
@@ -918,7 +925,7 @@
                 </div>
             </form>
         </div>
-        <table class="table table-bordered rounded table-hover m-0 ">
+        <table class="table table-borderless rounded table-hover m-0 ">
             <thead id="tHead" class="text-white bg-primary ">
             <tr>
                 <th>Item Code</th>
