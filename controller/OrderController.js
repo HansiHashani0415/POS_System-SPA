@@ -25,13 +25,23 @@ $("#btnAddToCart").click(function () {
     }
 });
 
-$("#txtCusIdInOrder").onkeydown(function (e) {
+/*$("#txtCusIdInOrder").onkeydown(function (e) {
     if(e.key == "Enter"){
         let searchCustomer = searchCustomer($("#txtCusIdInOrder").val());
         $("#txtNameInOrder").val(searchCustomer.getCusName());
     }
 
+});*/
+$("#txtCusIdInOrder").on('keyup', function (eventOb) {
+    if (eventOb.key == "Enter") {
+    let result = searchCustomer($("#txtCusIdInOrder").val());
+        console.log(result)
+    $("#txtNameInOrder").val(result.getCusName());
+    $("#txtAddressInOrder").val(result.getCusAddress());
+    $("#txtTpInOrder").val(result.getCusTp());
+}
 });
+
 
 function loadCartAll() {
     $("#tblCart").empty();
