@@ -653,7 +653,7 @@
                     <input type="email" class="form-control" id="inputNameNICTp1" placeholder="Input Name/NIC/Tp here">
                 </div>
                 <div class="col-2 me-3" >
-                    <button id="purchaseBtn1" class="btn btn me-2 text-white fw-bolder" type="button">Search</button>
+                    <button id="btnCustomerSearch" class="btn btn me-2 text-white fw-bolder bg-success" type="button">Search</button>
                 </div>
             </form>
         </div>
@@ -930,185 +930,280 @@
 
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+<script src="controller/IndexController.js"></script>
+<script src="controller/CustomerController.js"></script>
+<script src="db/DB.js"></script>
+<script src="model/customer.js"></script>
+
 <script>
 
-    // hide contents except Dashboard ---------------------------
 
-    $("#dashboard").css("display","block");
-    $("#manageCustomer").css("display","none");
-    $("#manageStore").css("display","none");
-    $("#placeOrder").css("display","none");
-
-    $("#linkToDashboard").css("fontWeight","bold");
-    $("#linkToDashboard").css("cursor","pointer");
-    $("#linkToManageCustomer").css("cursor","pointer");
-    $("#linkToManageItem").css("cursor","pointer");
-    $("#linkToPlaceOrder").css("cursor","pointer");
-
-    $("#linkToDashboard").on("click", function () {
-        $("#dashboard").css("display","block");
-        $("#manageCustomer").css("display","none");
-        $("#manageStore").css("display","none");
-        $("#placeOrder").css("display","none");
-        $("#orderDetail").css("display","none");
-
-        $("#linkToDashboard").css("fontWeight","bold");
-        $("#linkToManageCustomer").css("fontWeight","normal");
-        $("#linkToManageItem").css("fontWeight","normal");
-        $("#linkToPlaceOrder").css("fontWeight","normal");
-        $("#linkToOrderDetails").css("fontWeight","normal");
-    });
-
-    $("#linkToManageCustomer").on("click", function () {
-        $("#manageCustomer").css("display","block");
-        $("#dashboard").css("display","none");
-        $("#manageStore").css("display","none");
-        $("#placeOrder").css("display","none");
-        $("#orderDetail").css("display","none");
-
-        $("#linkToManageCustomer").css("fontWeight","bold");
-        $("#linkToManageItem").css("fontWeight","normal");
-        $("#linkToPlaceOrder").css("fontWeight","normal");
-        $("#linkToOrderDetails").css("fontWeight","normal");
-        $("#linkToDashboard").css("fontWeight","normal");
-    });
-
-    $("#linkToManageItem").on("click", function () {
-        $("#manageStore").css("display","block");
-        $("#manageCustomer").css("display","none");
-        $("#dashboard").css("display","none");
-        $("#placeOrder").css("display","none");
-        $("#orderDetail").css("display","none");
-
-        $("#linkToManageItem").css("fontWeight","bold");
-        $("#linkToManageCustomer").css("fontWeight","normal");
-        $("#linkToPlaceOrder").css("fontWeight","normal");
-        $("#linkToOrderDetails").css("fontWeight","normal");
-        $("#linkToDashboard").css("fontWeight","normal");
-    });
-
-    $("#linkToPlaceOrder").on("click", function () {
-        $("#placeOrder").css("display","block");
-        $("#manageStore").css("display","none");
-        $("#manageCustomer").css("display","none");
-        $("#dashboard").css("display","none");
-        $("#orderDetail").css("display","none");
-
-        $("#linkToPlaceOrder").css("fontWeight","bold");
-        $("#linkToManageItem").css("fontWeight","normal");
-        $("#linkToManageCustomer").css("fontWeight","normal");
-        $("#linkToOrderDetails").css("fontWeight","normal");
-        $("#linkToDashboard").css("fontWeight","normal");
-    });
-
-    $("#btnLinkToManageCustomer").on("click", function () {
-        $("#manageCustomer").css("display","block");
-        $("#dashboard").css("display","none");
-        $("#manageStore").css("display","none");
-        $("#placeOrder").css("display","none");
-        $("#orderDetail").css("display","none");
-
-        $("#linkToManageCustomer").css("fontWeight","bold");
-        $("#linkToManageItem").css("fontWeight","normal");
-        $("#linkToPlaceOrder").css("fontWeight","normal");
-        $("#linkToOrderDetails").css("fontWeight","normal");
-        $("#linkToDashboard").css("fontWeight","normal");
-    });
-
-    $("#btnLinkToManageStore").on("click", function () {
-        $("#manageStore").css("display","block");
-        $("#manageCustomer").css("display","none");
-        $("#dashboard").css("display","none");
-        $("#placeOrder").css("display","none");
-        $("#orderDetail").css("display","none");
-
-        $("#linkToManageItem").css("fontWeight","bold");
-        $("#linkToManageCustomer").css("fontWeight","normal");
-        $("#linkToPlaceOrder").css("fontWeight","normal");
-        $("#linkToOrderDetails").css("fontWeight","normal");
-        $("#linkToDashboard").css("fontWeight","normal");
-    });
-
-    $("#btnLinkToPlaceOrder").on("click", function () {
-        $("#placeOrder").css("display","block");
-        $("#manageStore").css("display","none");
-        $("#manageCustomer").css("display","none");
-        $("#dashboard").css("display","none");
-        $("#orderDetail").css("display","none");
-
-        $("#linkToPlaceOrder").css("fontWeight","bold");
-        $("#linkToManageItem").css("fontWeight","normal");
-        $("#linkToManageCustomer").css("fontWeight","normal");
-        $("#linkToOrderDetails").css("fontWeight","normal");
-        $("#linkToDashboard").css("fontWeight","normal");
-    });
 
     //  Save Customer ---------------------------------------------
 
-    $("#btnSaveCustomer").on("click", function () {
 
-        $("#customerDetailsTable>tr").off("click");
 
-       let customerID = $("#txtCustomerID").val();
-       let customerName = $("#txtCustomerName").val();
-       let customerAddress = $("#txtCustomerAddress").val();
-       let customerTelephone = $("#txtTelephone").val();
+    $("#btnCustomerSearch").on("click", function () {
+        var searchResult = searchCustomer($("#inputNameNICTp1").val());
+        if (!searchResult){
+            clearAll();
+            alert("Customer doesn't exist..");
+        }else{
 
-       let customerRow = `<tr><td>${customerID}</td><td>${customerName}</td><td>${customerAddress}</td><td>${customerTelephone}</td><!--<td>
-                <div>
-                    <button id="btnUpdateCustomer"  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
 
-                    <button id="btnDeleteCustomer" type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                        Delete
-                    </button>
+            $("#addNewCustomerModal2").modal('show');
 
-                    &lt;!&ndash;<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel3">Confirmation Alert</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Are you sure whether you want to delete this record?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Yes</button>
-                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>&ndash;&gt;
-                </div>
-            </td>--></tr>`;
-
-       $("#customerDetailsTable").append(customerRow);
-       $("#customerDetailsTable>tr").on("click", function () {
-
-           /* let id = $(this).parent().parent().parent().children(":eq(0)").text();
-           let name = $(this).parent().parent().parent().children(":eq(1)").text();
-           let address = $(this).parent().parent().parent().children(":eq(2)").text();
-           let tp = $(this).parent().parent().parent().children(":eq(3)").text();
-           console.log(id, name, address,tp);*/
-           let id = $(this).children(":eq(0)").text();
-           let name = $(this).children(":eq(1)").text();
-           let address = $(this).children(":eq(2)").text();
-           let tp = $(this).children(":eq(3)").text();
-           console.log(id, name, address,tp);
-
-           $("#addNewCustomerModal2").modal('show');
-
-           $("#txtCustomerID1").val(id);
-           $("#txtCustomerName1").val(name);
-           $("#txtCustomerAddress1").val(address);
-           $("#txtTelephone1").val(tp);
-       });
-
+            $("#txtCustomerID1").val(searchResult.getCusID());
+            $("#txtCustomerName1").val(searchResult.getCusName());
+            $("#txtCustomerAddress1").val(searchResult.getCusAddress());
+            $("#txtTelephone1").val(searchResult.getCusTp());
+        }
     });
 
-    //  Save Item  ---------------------------------------------
+    $("#btnDeleteCustomer2").on("click",function () {
+       if(!searchCustomer( $("#txtCustomerID1").val())){
+           let serchedID =  $("#txtCustomerID1").val();
+           clearAll();
+            checkIfValid();
+       }else {
+           deleteCustomer( $("#txtCustomerID1").val());
+       }
+    });
 
-    $("#btnSaveItem").on("click", function () {
+    $("#btnUpdateCustomer").on("click",function () {
+        if(updateCustomer($("#txtCustomerID1").val(), $("#txtCustomerName1").val(), $("#txtCustomerAddress1").val(), $("#txtTelephone1").val())){
+            loadAllCustomers();
+            clearAll();
+        }
+    });
+
+    function updateCustomer(id, name, address, tp) {
+        for (let i = 0; i < customerDB.length; i++) {
+            if(customerDB[i].getCusID()===id){
+                customerDB[i].setCusName(name);
+                customerDB[i].setCusAddress(address);
+                customerDB[i].setCusTp(tp);
+                return true;
+            }
+        }
+        return false;
+    }
+
+        function deleteCustomer(id) {
+        for (let i = 0; i < customerDB.length; i++) {
+            if(customerDB[i].getCusID() === id){
+                customerDB.splice(i,1);
+                $("#customerDetailsTable").empty();
+                loadAllCustomers();
+                clearAll();
+            }
+        }
+        return false;
+    }
+
+    $("#btnSaveCustomer").on("click", function () {
+
+        let newCustomer=new CustomerDTO($("#txtCustomerID").val(), $("#txtCustomerName").val(), $("#txtCustomerAddress").val(), $("#txtTelephone").val());
+        console.log(newCustomer.getCusID(),newCustomer.getCusName());
+        if (!searchCustomer($("#txtCustomerID").val())){
+            if (checkIfValid()){
+                saveCustomer(newCustomer);
+                clearAll();
+                loadAllCustomers();
+            }
+        }
+    });
+
+    function saveCustomer(customer) {
+        customerDB.push(customer);
+
+        $("#customerDetailsTable>tr").on("click", function () {
+
+            let id = $(this).children(":eq(0)").text();
+            let name = $(this).children(":eq(1)").text();
+            let address = $(this).children(":eq(2)").text();
+            let tp = $(this).children(":eq(3)").text();
+            console.log(id, name, address,tp);
+
+            $("#addNewCustomerModal2").modal('show');
+
+            $("#txtCustomerID1").val(id);
+            $("#txtCustomerName1").val(name);
+            $("#txtCustomerAddress1").val(address);
+            $("#txtTelephone1").val(tp);
+        });
+
+    }
+
+    function loadAllCustomers() {
+        $("#customerDetailsTable").empty();
+        for (var i of customerDB) {
+            let customerRow = `<tr><td>${i.getCusID()}</td><td>${i.getCusName()}</td><td>${i.getCusAddress()}</td><td>${i.getCusTp()}</td></tr>`;
+            console.log(customerRow)
+            $("#customerDetailsTable").append(customerRow);
+        }
+    }
+
+    function searchCustomer(id) {
+        for (let i = 0; i<customerDB.length;i++){
+            if (customerDB[i].getCusID()===id){
+                return customerDB[i];
+            }
+        }
+        return false;
+    }
+
+    const regExCusID = /^C[0-9]{3,4}$/;
+    const regExCusName = /^[A-z]{5,25}$/;
+    const regExCusAddress = /^[0-9/A-z. ,]{5,}$/;
+    const regExCusTP = /^(071|077|078|075|076)[-]?[0-9]{7}$/;
+
+    $('#txtCustomerID,#txtCustomerName,#txtCustomerAddress,#txtTelephone,#txtCustomerID1,#txtCustomerName1,#txtCustomerAddress1,#txtTelephone1').on('keydown', function (eventOb) {
+        if (eventOb.key == "Tab") {
+            eventOb.preventDefault();
+        }
+    });
+
+    $('#txtCustomerID,#txtCustomerName,#txtCustomerAddress,#txtTelephone,#txtCustomerID1,#txtCustomerName1,#txtCustomerAddress1,#txtTelephone1').on('blur', function () {
+        formValid();
+    });
+
+    //-------------------------focusing events
+    $("#txtCustomerID,#txtCustomerID1").on('keyup', function (eventOb) {
+        setButton();
+        if (eventOb.key == "Enter") {
+            checkIfValid();
+        }
+
+        if (eventOb.key == "Control") {
+            var typedCustomerID = $("#txtCustomerID").val();
+            var srcCustomer = searchCustomer(typedCustomerID);
+            // $("#txtCusID").val(srcCustomer.getCustomerID());
+            // $("#txtCusName").val(srcCustomer.getCustomerName());
+            // $("#txtCusAddress").val(srcCustomer.getCustomerAddress());
+            // $("#txtCusTP").val(srcCustomer.getCustomerSalary());
+        }
+    });
+
+    $("#txtCustomerName,#txtCustomerName1").on('keyup', function (eventOb) {
+        setButton();
+        if (eventOb.key == "Enter") {
+            checkIfValid();
+        }
+    });
+
+    $("#txtCustomerAddress,#txtCustomerAddress1").on('keyup', function (eventOb) {
+        setButton();
+        if (eventOb.key == "Enter") {
+            checkIfValid();
+        }
+    });
+
+    $("#txtTelephone,#txtTelephone1").on('keyup', function (eventOb) {
+        setButton();
+        if (eventOb.key == "Enter") {
+            checkIfValid();
+        }
+    });
+    // ----------------------focusing events end
+    $("#btnSaveCustomer").attr('disabled', true);
+
+    function clearAll() {
+        $('#txtCustomerID,#txtCustomerName,#txtCustomerAddress,#txtTelephone,#txtCustomerID1,#txtCustomerName1,#txtCustomerAddress1,#txtTelephone1').val("");
+        $('#txtCustomerID,#txtCustomerName,#txtCustomerAddress,#txtTelephone,#txtCustomerID1,#txtCustomerName1,#txtCustomerAddress1,#txtTelephone1').css('border', '2px solid #ced4da');
+        $('#txtCustomerID,#txtCustomerID1').focus();
+        $("#btnSaveCustomer").attr('disabled', true);
+        loadAllCustomers();
+        $("#lblcusid,#lblcusname,#lblcusaddress,#lblcustp").text("");
+    }
+
+    function formValid() {
+        var cusID = $("#txtCustomerID").val();
+        $("#txtCustomerID").css('border', '2px solid green');
+        $("#lblcusid").text("");
+        if (regExCusID.test(cusID)) {
+            var cusName = $("#txtCustomerName").val();
+            if (regExCusName.test(cusName)) {
+                $("#txtCustomerName").css('border', '2px solid green');
+                $("#lblcusname").text("");
+                var cusAddress = $("#txtCustomerAddress").val();
+                if (regExCusAddress.test(cusAddress)) {
+                    var cusTP = $("#txtTelephone").val();
+                    var resp = regExCusTP.test(cusTP);
+                    $("#txtCustomerAddress").css('border', '2px solid green');
+                    $("#lblcusaddress").text("");
+                    if (resp) {
+                        $("#txtTelephone").css('border', '2px solid green');
+                        $("#lblcustp").text("");
+                        return true;
+                    } else {
+                        $("#txtTelephone").css('border', '2px solid red');
+                        $("#lblcustp").text("Cus Telephone is a required field : Pattern 07********");
+                        return false;
+                    }
+                } else {
+                    $("#txtCustomerAddress").css('border', '2px solid red');
+                    $("#lblcusaddress").text("Cus Address is a required field : Mimum 5");
+                    return false;
+                }
+            } else {
+                $("#txtCustomerName").css('border', '2px solid red');
+                $("#lblcusname").text("Cus Name is a required field : Minimum 5, Max 25, Spaces Allowed");
+                return false;
+            }
+        } else {
+            $("#txtCustomerID").css('border', '2px solid red');
+            $("#lblcusid").text("Cus ID is a required field : Pattern C001");
+            return false;
+        }
+    }
+
+    function checkIfValid() {
+
+        var cusID = $("#txtCustomerID").val();
+        if (regExCusID.test(cusID)) {
+            $("#txtCustomerName").focus();
+            var cusName = $("#txtCustomerName").val();
+            if (regExCusName.test(cusName)) {
+                $("#txtCustomerAddress").focus();
+                var cusAddress = $("#txtCustomerAddress").val();
+                if (regExCusAddress.test(cusAddress)) {
+                    $("#txtTelephone").focus();
+                    var cusTp = $("#txtTelephone").val();
+                    var resp = regExCusTP.test(cusTp);
+                    if (resp) {
+                        clearAll();
+                        return true;
+                    } else {
+                        $("#txtTelephone").focus();
+                    }
+                } else {
+                    $("#txtCustomerAddress").focus();
+                }
+            } else {
+                $("#txtCustomerName").focus();
+            }
+        } else {
+            $("#txtCustomerID").focus();
+        }
+    }
+
+    function setButton() {
+        let b = formValid();
+        if (b) {
+            $("#btnSaveCustomer").attr('disabled', false);
+        } else {
+            $("#btnSaveCustomer").attr('disabled', true);
+        }
+    }
+
+    $('#btnSaveCustomer').click(function () {
+        checkIfValid();
+    });
+
+        //  Save Item  ---------------------------------------------
+
+   /* $("#btnSaveItem").on("click", function () {
 
         $("#itemDetailsTable>tr").off("click");
 
@@ -1149,11 +1244,11 @@
 
         $("#itemDetailsTable>tr").on("click", function () {
 
-            /* let id = $(this).parent().parent().parent().children(":eq(0)").text();
+            /!* let id = $(this).parent().parent().parent().children(":eq(0)").text();
             let name = $(this).parent().parent().parent().children(":eq(1)").text();
             let address = $(this).parent().parent().parent().children(":eq(2)").text();
             let tp = $(this).parent().parent().parent().children(":eq(3)").text();
-            console.log(id, name, address,tp);*/
+            console.log(id, name, address,tp);*!/
             let code = $(this).children(":eq(0)").text();
             let desc = $(this).children(":eq(1)").text();
             let unitPrice = $(this).children(":eq(2)").text();
@@ -1166,15 +1261,15 @@
             $("#txtDescription1").val(desc);
             $("#txtUnitPrice1").val(unitPrice);
             $("#txtQtyOnHand1").val(qtyOnHand);
-           /* $("#btnDeleteItem1").on("click",function () {
+           /!* $("#btnDeleteItem1").on("click",function () {
                 $("#exampleModal3").modal('show');
-            });*/
+            });*!/
         });
-    });
+    });*/
 
     //  Focus TextFields ---------------------------------------------
 
-    $("#txtCustomerID").keydown(function (event) {
+   /* $("#txtCustomerID").keydown(function (event) {
         if (event.key == "Enter"){
             $("#txtCustomerName").focus();
         }
@@ -1257,7 +1352,7 @@
             $("#btnUpdateItem1").focus();
         }
     });
-
+*/
 </script>
 </body>
 </html>
