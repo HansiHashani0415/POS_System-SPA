@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Fonts/css/all.css">
     <style>
+        body{
+            overflow: hidden;
+        }
         #content{
             align-content: center;
             height: 400px;
@@ -46,7 +49,43 @@
         .nav-item:hover{
             font-weight: bolder;
         }
+        #dashboard{
+            width: 100vw;
+            height: 100vh;
+            background: url("assets/images/background.jpg");
+            background-size: cover;
+            top: 0;
+            margin: auto;
+            z-index: -3;
+        }
+        #manageCustomer{
+            width: 100vw;
+            height: 100vh;
+            background: url("assets/images/background.jpg");
+            background-size: cover;
+            top: 0;
+            margin: auto;
+            z-index: -3;
+        }
+        #manageStore{
+            width: 100vw;
+            height: 100vh;
+            background: url("assets/images/background.jpg");
+            background-size: cover;
+            top: 0;
+            margin: auto;
+            z-index: -3;
+        }
 
+        #placeOrder{
+            width: 100vw;
+            height: 100vh;
+            background: url("assets/images/background.jpg");
+            background-size: cover;
+            top: 0;
+            margin: auto;
+            z-index: -3;
+        }
         @media all and (min-width: 320px) and (max-width: 375px){
             #navbar{
                 width: 312vw;
@@ -133,6 +172,7 @@
                 top: 759px;
             }
         }
+
         @media all and (min-width: 375px) and (max-width: 425px){
             #navbar{
                 width: 312vw;
@@ -568,6 +608,7 @@
                                     <div class="col-md-12">
                                         <label for="txtCustomerID" class="form-label">Customer ID :</label>
                                         <input type="text" class="form-control" id="txtCustomerID" placeholder="C001">
+                                        <p><small id="lblCusID" class="text-danger pl-1"></small></p>
                                     </div>
                                     <div class="col-12">
                                         <label for="txtCustomerName" class="form-label">Name :</label>
@@ -645,12 +686,11 @@
 </section>
 <section id="manageCustomer" class="container-fluid pe-5 ps-5">
     <section class="row pe-4 ps-4 ">
-        <h4 class="shadow"><i class="fas fa-users p-2"></i>Customer</h4>
         <div class="col-4 shadow-lg  mb-4  bg-body border rounded  border-2 me-5 mt-3 p-3 ">
             <form class="row g-3">
                 <div id="searchFormHeader1" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded">Search Customer</div>
                 <div class="col-md-12">
-                    <input type="email" class="form-control" id="inputNameNICTp1" placeholder="Input Name/NIC/Tp here">
+                    <input type="email" class="form-control" id="inputNameNICTp1" placeholder="Input Customer ID here">
                 </div>
                 <div class="col-2 me-3" >
                     <button id="btnCustomerSearch" class="btn btn me-2 text-white fw-bolder bg-success" type="button">Search</button>
@@ -710,12 +750,11 @@
 </section>
 <section id="manageStore" class="container-fluid pe-5 ps-5">
     <section class="row pe-4 ps-4 ">
-        <h4 class="shadow"><i class="fas fa-cubes p-2"></i>Item</h4>
         <div class="col-4 shadow-lg  mb-4  bg-body border rounded  border-2 me-5 mt-3 p-3 ">
             <form class="row g-3">
                 <div id="searchFormHeader" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded">Search Item</div>
                 <div class="col-md-12">
-                    <input type="email" class="form-control" id="inputNameNICTp" placeholder="Input Item Code/ Description here">
+                    <input type="email" class="form-control" id="inputNameNICTp" placeholder="Input Item Code here">
                 </div>
                 <div class="col-2 me-3" >
                     <button id="purchaseBtn2" class="btn btn me-2 text-white fw-bolder" type="button">Search</button>
@@ -792,26 +831,25 @@
 </section>
 <section id="placeOrder" class="container-fluid">
     <section class="row pe-4 ps-4">
-        <h4 class="shadow"><i class="fas fa-shopping-cart p-2"></i>Purchase Order</h4>
         <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-3 shadow-lg  mb-4  bg-body border rounded  border-2 me-5 mt-3 p-3 ">
             <form class="row g-3">
                 <div id="invoiceFormHeader" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded ">Customer Details</div>
                 <div class="col-md-12">
-                    <label for="inputOrderID" class="form-label">Cusomer ID :</label>
-                    <input type="text" class="form-control" id="inputOrderID" placeholder="C001">
+                    <label for="txtCusIdInOrder" class="form-label">Cusomer ID :</label>
+                    <input type="text" class="form-control" id="txtCusIdInOrder">
                 </div>
                 <div class="col-md-12">
-                    <label for="inputName1" class="form-label">Name :</label>
-                    <input type="text" class="form-control" id="inputName1" >
+                    <label for="txtNameInOrder" class="form-label">Name :</label>
+                    <input type="text" class="form-control" id="txtNameInOrder" >
                 </div>
                 <div class="col-12">
-                    <label for="inputAddress2" class="form-label">Address :</label>
-                    <input type="text" class="form-control" id="inputAddress2" >
+                    <label for="txtAddressInOrder" class="form-label">Address :</label>
+                    <input type="text" class="form-control" id="txtAddressInOrder" >
 
                 </div>
                 <div class="col-12">
-                    <label for="inputCustomerID" class="form-label">Telephone :</label>
-                    <input type="text" class="form-control" id="inputCustomerID" >
+                    <label for="txtTpInOrder" class="form-label">Telephone :</label>
+                    <input type="text" class="form-control" id="txtTpInOrder" >
                 </div>
             </form>
         </div>
@@ -820,67 +858,63 @@
                 <div id="itemFormHeader" class="col-12 text-white text-center p-2 fw-bolder fs-5 mt-2 rounded ">Select Item</div>
                 <div class="col-md-6">
                     <label for="inputItem" class="form-label">Item Code :</label>
-                    <select id="inputItem" class="form-select">
-                        <option selected>P001</option>
-                        <option>P002</option>
-                        <option>P003</option>
-                        <option>P004</option>
+                    <select id="inputItem" class="form-select" onchange="loadItemCodesToTheCombo()">
                     </select>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputItemCode1" class="form-label">Item Code :</label>
-                    <input type="text" class="form-control" id="inputItemCode1" placeholder="Search Item Code Here">
+                    <label for="txtItemCodeInOrder" class="form-label">Item Code :</label>
+                    <input type="text" class="form-control" id="txtItemCodeInOrder" placeholder="Search Item Code Here">
                 </div>
                 <div class="col-7">
-                    <label for="inputItemName1" class="form-label">Description :</label>
-                    <input type="text" class="form-control" id="inputItemName1" >
+                    <label for="txtDescInOrder" class="form-label">Description :</label>
+                    <input type="text" class="form-control" id="txtDescInOrder" >
                 </div>
                 <div class="col-5">
-                    <label for="inputPrice1" class="form-label">Unit Price :</label>
-                    <input type="text" class="form-control" id="inputPrice1" >
+                    <label for="txtUnitPriceInOrder" class="form-label">Unit Price :</label>
+                    <input type="text" class="form-control" id="txtUnitPriceInOrder" >
                 </div>
                 <div class="col-6">
-                    <label for="inputQtyOnHand1" class="form-label">Qty On Hand :</label>
-                    <input type="text" class="form-control" id="inputQtyOnHand1" >
+                    <label for="txtQtyOnHandInOrder" class="form-label">Qty On Hand :</label>
+                    <input type="text" class="form-control" id="txtQtyOnHandInOrder" >
                 </div>
                 <div class="col-6">
-                    <label for="inputOrderQty" class="form-label">Enter Order Qty :</label>
-                    <input type="number" class="form-control" id="inputOrderQty" placeholder="2">
+                    <label for="txtOrderQty" class="form-label">Enter Order Qty :</label>
+                    <input type="number" class="form-control" id="txtOrderQty" >
                 </div>
                 <div class="col-12" >
-                    <button id="addBtn" class="btn btn-sm text-white fw-bolder me-2" type="button">Add Item</button>
+                    <button id="btnAddToCart" class="btn btn-sm text-white fw-bolder me-2 bg-success" type="button">Add To Cart</button>
                 </div>
             </form>
         </div>
         <div class="col-12 col-sm-12 col-md-8 col-lg-5 col-xl-3 shadow-lg p-3 mb-4  bg-body border rounded  border-2 mt-3  ">
             <form class="row g-3">
-                <div class="col-md-7">
-                    <label for="inputDate" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="inputDate" >
-                </div>
                 <div class="col-md-5">
-                    <label for="inputTime" class="form-label">Time</label>
-                    <input type="time" class="form-control" id="inputTime" >
+                    <label for="txtTime" class="form-label">Order ID</label>
+                    <input type="text" class="form-control" id="txtTime" >
+                </div>
+                <div class="col-md-7">
+                    <label for="txtDate" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="txtDate" >
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCash" class="form-label">Cash</label>
-                    <input type="text" class="form-control" id="inputCash" placeholder="5000">
+                    <label for="txtCash" class="form-label">Cash</label>
+                    <input type="text" class="form-control" id="txtCash" >
                 </div>
                 <div class="col-md-6">
-                    <label for="inputDiscount" class="form-label">Discount</label>
-                    <input type="text" class="form-control" id="inputDiscount" placeholder="10">
+                    <label for="txtDiscount" class="form-label">Discount</label>
+                    <input type="text" class="form-control" id="txtDiscount">
                 </div>
                 <div class="col-12">
-                    <label for="inputBalance" class="form-label">Balance</label>
-                    <input type="text" class="form-control" id="inputBalance" placeholder="4055">
+                    <label for="txtBalance" class="form-label">Balance</label>
+                    <input type="text" class="form-control" id="txtBalance" >
                 </div>
                 <div>
-                    <h3 class="text-primary">SubTotal : 1050 Rs/=</h3>
-                    <h3 class="text-danger">Total : 945 Rs/=</h3>
+                    <h3 id="subTotal" class="text-primary">SubTotal : 1050 Rs/=</h3>
+                    <h3 id="total" class="text-danger">Total : 945 Rs/=</h3>
                 </div>
                 <div class="col-12 mx-auto">
-                    <button  id="purchaseBtn3" type="submit" class="btn btn-sm text-white fw-bolder">Confirm Order</button>
-                    <button   type="submit" class="btn btn-sm text-white btn-danger fw-bolder">Cancel Order</button>
+                    <button  id="btnConfirmOrder" type="submit" class="btn btn-sm text-white fw-bolder bg-primary">Confirm Order</button>
+                    <button id="btnCancelOrder"  type="submit" class="btn btn-sm text-white btn-danger fw-bolder">Cancel Order</button>
                 </div>
             </form>
         </div>
@@ -892,36 +926,9 @@
                 <th>Unit Price</th>
                 <th>Quantity</th>
                 <th>Total</th>
-                <th>Option</th>
             </tr>
             </thead>
-            <tbody class="table-primary">
-            <tr class="table-hover fw-light">
-                <th>I001</th>
-                <th>Rice</th>
-                <th>150.00</th>
-                <th>2</th>
-                <th>300.00</th>
-                <th>
-                    <div>
-                        <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
-                        <button  type="submit" class="btn btn-sm btn-danger text-white  ">Remove</button>
-                    </div>
-                </th>
-            </tr>
-            <tr class="table-hover fw-light">
-                <th>I001</th>
-                <th>Rice</th>
-                <th>150.00</th>
-                <th>2</th>
-                <th>300.00</th>
-                <th>
-                    <div>
-                        <button  type="submit" class="btn btn-sm btn-success text-white  ">Update</button>
-                        <button  type="submit" class="btn btn-sm btn-danger text-white  ">Remove</button>
-                    </div>
-                </th>
-            </tr>
+            <tbody id="tblCart" class="table-primary">
             </tbody>
         </table>
     </section>
@@ -939,6 +946,7 @@
 <script src="model/item.js"></script>
 
 <script>
+
 
 
 
@@ -1010,92 +1018,6 @@
         });
     });*/
 
-    //  Focus TextFields ---------------------------------------------
-
-   /* $("#txtCustomerID").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtCustomerName").focus();
-        }
-    });
-    $("#txtCustomerName").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtCustomerAddress").focus();
-        }
-    });
-    $("#txtCustomerAddress").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtTelephone").focus();
-        }
-    });
-    $("#txtTelephone").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#btnSaveCustomer").focus();
-        }
-    });
-
-    $("#txtCustomerID1").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtCustomerName1").focus();
-        }
-    });
-    $("#txtCustomerName1").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtCustomerAddress1").focus();
-        }
-    });
-    $("#txtCustomerAddress1").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtTelephone1").focus();
-        }
-    });
-    $("#txtTelephone1").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#btnUpdateCustomer").focus();
-        }
-    });
-
-    $("#txtItemCode").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtDescription").focus();
-        }
-    });
-    $("#txtDescription").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtUnitPrice").focus();
-        }
-    });
-    $("#txtUnitPrice").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtQtyOnHand").focus();
-        }
-    });
-    $("#txtQtyOnHand").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#btnSaveItem").focus();
-        }
-    });
-
-    $("#txtItemCode1").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtDescription1").focus();
-        }
-    });
-    $("#txtDescription1").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtUnitPrice1").focus();
-        }
-    });
-    $("#txtUnitPrice1").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#txtQtyOnHand1").focus();
-        }
-    });
-    $("#txtQtyOnHand1").keydown(function (event) {
-        if (event.key == "Enter"){
-            $("#btnUpdateItem1").focus();
-        }
-    });
-*/
 </script>
 </body>
 </html>

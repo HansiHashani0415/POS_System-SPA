@@ -110,13 +110,13 @@ function clearAll() {
     $('#txtCustomerID,#txtCustomerID1').focus();
     $("#btnSaveCustomer").attr('disabled', true);
     loadAllCustomers();
-    $("#lblcusid,#lblcusname,#lblcusaddress,#lblcustp").text("");
+    $("#lblCusID,#lblcusname,#lblcusaddress,#lblcustp").text("");
 }
 
 function formValid() {
     var cusID = $("#txtCustomerID").val();
     $("#txtCustomerID").css('border', '2px solid green');
-    $("#lblcusid").text("");
+    $("#lblCusID").text("");
     if (regExCusID.test(cusID)) {
         var cusName = $("#txtCustomerName").val();
         if (regExCusName.test(cusName)) {
@@ -149,7 +149,7 @@ function formValid() {
         }
     } else {
         $("#txtCustomerID").css('border', '2px solid red');
-        $("#lblcusid").text("Cus ID is a required field : Pattern C001");
+        $("#lblCusID").text("Cus ID is a required field : Pattern C001");
         return false;
     }
 }
