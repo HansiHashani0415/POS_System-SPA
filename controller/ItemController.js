@@ -23,7 +23,7 @@ $("#btnDeleteItem").on("click",function () {
     if(!searchItem( $("#txtItemCode1").val())){
         let serchedID =  $("#txtItemCode1").val();
         clearAll();
-        checkIfValid();
+        checkIfValidItem();
     }else {
         deleteItem( $("#txtItemCode1").val());
     }
@@ -41,7 +41,7 @@ $("#btnSaveItem").on("click", function () {
     let newItem=new ItemDTO($("#txtItemCode").val(), $("#txtDescription").val(), $("#txtUnitPrice").val(), $("#txtQtyOnHand").val());
     console.log(newItem.getItemCode(),newItem.getItemDesc());
     if (!searchItem($("#txtItemCode").val())){
-        if (checkIfValid()){
+        if (checkIfValidItem()){
             saveItem(newItem);
             clearAll();
             loadAllItems();
@@ -61,14 +61,14 @@ $('#txtItemCode,#txtDescription,#txtUnitPrice,#txtQtyOnHand,#txtItemCode1,#txtDe
 });
 
 $('#txtItemCode,#txtDescription,#txtUnitPrice,#txtQtyOnHand,#txtItemCode1,#txtDescription1,#txtUnitPrice1,#txtQtyOnHand1').on('blur', function () {
-    formValid();
+    formValidItem();
 });
 
 //-------------------------focusing events
 $("#txtItemCode,#txtItemCode1").on('keyup', function (eventOb) {
     setButton();
     if (eventOb.key == "Enter") {
-        checkIfValid();
+        checkIfValidItem();
     }
 
     if (eventOb.key == "Control") {
@@ -84,21 +84,21 @@ $("#txtItemCode,#txtItemCode1").on('keyup', function (eventOb) {
 $("#txtDescription,#txtDescription1").on('keyup', function (eventOb) {
     setButton();
     if (eventOb.key == "Enter") {
-        checkIfValid();
+        checkIfValidItem();
     }
 });
 
 $("#txtUnitPrice,#txtUnitPrice1").on('keyup', function (eventOb) {
     setButton();
     if (eventOb.key == "Enter") {
-        checkIfValid();
+        checkIfValidItem();
     }
 });
 
 $("#txtQtyOnHand,#txtQtyOnHand1").on('keyup', function (eventOb) {
     setButton();
     if (eventOb.key == "Enter") {
-        checkIfValid();
+        checkIfValidItem();
     }
 });
 // ----------------------focusing events end
@@ -110,51 +110,51 @@ function clearAllItems() {
     $('#txtItemCode,#txtItemCode1').focus();
     $("#btnSaveItem").attr('disabled', true);
     loadAllItems();
-    $("#lblCusID,#lblcusname,#lblcusaddress,#lblcustp").text("");
+    $("#lblItemCode,#lblItemDesc,#lblUnitPrice,#lblQtyOnHand").text("");
 }
 
-function formValid() {
+function formValidItem() {
     var itemCode = $("#txtItemCode").val();
     $("#txtItemCode").css('border', '2px solid green');
-    $("#lblCusID").text("");
+    $("#lblItemCode").text("");
     if (regExItemCode.test(itemCode)) {
         var description = $("#txtDescription").val();
         if (regExDesc.test(description)) {
             $("#txtDescription").css('border', '2px solid green');
-            $("#lblcusname").text("");
+            $("#lblItemDesc").text("");
             var unitPrice = $("#txtUnitPrice").val();
             if (regExUnitPrice.test(unitPrice)) {
                 var qty = $("#txtQtyOnHand").val();
                 var resp = regExQtyOnHand.test(qty);
                 $("#txtUnitPrice").css('border', '2px solid green');
-                $("#lblcusaddress").text("");
+                $("#lblUnitPrice").text("");
                 if (resp) {
                     $("#txtQtyOnHand").css('border', '2px solid green');
-                    $("#lblcustp").text("");
+                    $("#lblQtyOnHand").text("");
                     return true;
                 } else {
                     $("#txtQtyOnHand").css('border', '2px solid red');
-                    $("#lblcustp").text("Item QtyOnHand is a required field : Pattern >0");
+                    $("#lblQtyOnHand").text("Item QtyOnHand is a required field : Pattern >0");
                     return false;
                 }
             } else {
                 $("#txtUnitPrice").css('border', '2px solid red');
-                $("#lblcusaddress").text("Item Unit Price is a required field : Pattern >0.00");
+                $("#lblUnitPrice").text("Item Unit Price is a required field : Pattern >0.00");
                 return false;
             }
         } else {
             $("#txtDescription").css('border', '2px solid red');
-            $("#lblcusname").text("Item Description is a required field : Minimum 2, Max 25, Spaces Allowed");
+            $("#lblItemDesc").text("Item Description is a required field : Minimum 2, Max 25, Spaces Allowed");
             return false;
         }
     } else {
         $("#txtItemCode").css('border', '2px solid red');
-        $("#lblCusID").text("Item Code is a required field : Pattern I001");
+        $("#lblItemCode").text("Item Code is a required field : Pattern I001");
         return false;
     }
 }
 
-function checkIfValid() {
+function checkIfValidItem() {
 
     var cusID = $("#txtItemCode").val();
     if (regExItemCode.test(cusID)) {
@@ -185,7 +185,7 @@ function checkIfValid() {
 }
 
 function setButton() {
-    let b = formValid();
+    let b = formValidItem();
     if (b) {
         $("#btnSaveItem").attr('disabled', false);
     } else {
@@ -194,5 +194,5 @@ function setButton() {
 }
 
 $('#btnSaveItem').click(function () {
-    checkIfValid();
+    checkIfValidItem();
 });

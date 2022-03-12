@@ -1,6 +1,12 @@
 
 var customerDB=new Array();
 var itemDB=new Array();
+var orderDB = new Array();
+var cartDB = new Array();
+
+function addCart(cart){
+    cartDB.push(cart);
+}
 
 function updateCustomer(id, name, address, tp) {
     for (let i = 0; i < customerDB.length; i++) {
@@ -124,4 +130,23 @@ function searchItem(code) {
         }
     }
     return false;
+}
+function loadAllItemIDs(){
+    $("#inputItem").empty();
+    $("#inputItem").append(`<option value="" disabled selected hidden>Select ID</option>`);
+    for (let i = 0; i < itemDB.length; i++) {
+        let code= `<option value="${itemDB[i].getItemCode()}">${itemDB[i].getItemCode()}</option>`;
+        $("#inputItem").append(code);
+    }
+}
+
+function loadItemDetails(id){
+    for (let i = 0; i < itemDB.length; i++) {
+        if (itemDB[i].getItemCode() === id) {
+            $("#txtItemCodeInOrder").val(itemDB[i].getItemCode());
+            $("#txtDescInOrder").val(itemDB[i].getItemDesc());
+            $("#txtUnitPriceInOrder").val(itemDB[i].getItemUnitPrice());
+            $("#txtQtyOnHandInOrder").val(itemDB[i].getItemQtyOnHand());
+        }
+    }
 }

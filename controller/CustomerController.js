@@ -110,7 +110,7 @@ function clearAll() {
     $('#txtCustomerID,#txtCustomerID1').focus();
     $("#btnSaveCustomer").attr('disabled', true);
     loadAllCustomers();
-    $("#lblCusID,#lblcusname,#lblcusaddress,#lblcustp").text("");
+    $("#lblCusID,#lblCusName,#lblCusAddress,#lblCusTp").text("");
 }
 
 function formValid() {
@@ -121,30 +121,30 @@ function formValid() {
         var cusName = $("#txtCustomerName").val();
         if (regExCusName.test(cusName)) {
             $("#txtCustomerName").css('border', '2px solid green');
-            $("#lblcusname").text("");
+            $("#lblCusName").text("");
             var cusAddress = $("#txtCustomerAddress").val();
             if (regExCusAddress.test(cusAddress)) {
                 var cusTP = $("#txtTelephone").val();
                 var resp = regExCusTP.test(cusTP);
                 $("#txtCustomerAddress").css('border', '2px solid green');
-                $("#lblcusaddress").text("");
+                $("#lblCusAddress").text("");
                 if (resp) {
                     $("#txtTelephone").css('border', '2px solid green');
-                    $("#lblcustp").text("");
+                    $("#lblCusTp").text("");
                     return true;
                 } else {
                     $("#txtTelephone").css('border', '2px solid red');
-                    $("#lblcustp").text("Cus Telephone is a required field : Pattern 07********");
+                    $("#lblCusTp").text("Cus Telephone is a required field : Pattern 07********");
                     return false;
                 }
             } else {
                 $("#txtCustomerAddress").css('border', '2px solid red');
-                $("#lblcusaddress").text("Cus Address is a required field : Mimum 5");
+                $("#lblCusAddress").text("Cus Address is a required field : Mimum 5");
                 return false;
             }
         } else {
             $("#txtCustomerName").css('border', '2px solid red');
-            $("#lblcusname").text("Cus Name is a required field : Minimum 5, Max 25, Spaces Allowed");
+            $("#lblCusName").text("Cus Name is a required field : Minimum 5, Max 25, Spaces Allowed");
             return false;
         }
     } else {

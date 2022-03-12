@@ -57,6 +57,9 @@ $("#linkToManageItem").on("click", function () {
 });
 
 $("#linkToPlaceOrder").on("click", function () {
+
+    loadAllItemIDs();
+
     $("#placeOrder").css("display","block");
     $("#manageStore").css("display","none");
     $("#manageCustomer").css("display","none");
@@ -102,6 +105,8 @@ $("#btnLinkToManageStore").on("click", function () {
 });
 
 $("#btnLinkToPlaceOrder").on("click", function () {
+    loadAllItemIDs();
+
     $("#placeOrder").css("display","block");
     $("#manageStore").css("display","none");
     $("#manageCustomer").css("display","none");
