@@ -25,6 +25,14 @@ $("#btnAddToCart").click(function () {
     }
 });
 
+$("#txtCusIdInOrder").onkeydown(function (e) {
+    if(e.key == "Enter"){
+        let searchCustomer = searchCustomer($("#txtCusIdInOrder").val());
+        $("#txtNameInOrder").val(searchCustomer.getCusName());
+    }
+
+});
+
 function loadCartAll() {
     $("#tblCart").empty();
     for (var i of cartDB) {

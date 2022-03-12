@@ -102,13 +102,13 @@ $("#txtTelephone,#txtTelephone1").on('keyup', function (eventOb) {
     }
 });
 // ----------------------focusing events end
-$("#btnSaveCustomer").attr('disabled', true);
+//$("#btnSaveCustomer").attr('disabled', true);
 
 function clearAll() {
     $('#txtCustomerID,#txtCustomerName,#txtCustomerAddress,#txtTelephone,#txtCustomerID1,#txtCustomerName1,#txtCustomerAddress1,#txtTelephone1').val("");
     $('#txtCustomerID,#txtCustomerName,#txtCustomerAddress,#txtTelephone,#txtCustomerID1,#txtCustomerName1,#txtCustomerAddress1,#txtTelephone1').css('border', '2px solid #ced4da');
     $('#txtCustomerID,#txtCustomerID1').focus();
-    $("#btnSaveCustomer").attr('disabled', true);
+    //$("#btnSaveCustomer").attr('disabled', true);
     loadAllCustomers();
     $("#lblCusID,#lblCusName,#lblCusAddress,#lblCusTp").text("");
 }
@@ -189,7 +189,7 @@ function setButton() {
     if (b) {
         $("#btnSaveCustomer").attr('disabled', false);
     } else {
-        $("#btnSaveCustomer").attr('disabled', true);
+        //$("#btnSaveCustomer").attr('disabled', true);
     }
 }
 
